@@ -2,6 +2,10 @@
 
 A simple Streamlit-based web UI for chatting with the Deepseek-R1-Distill-Llama-8B model (or any local LLM server with an OpenAI-compatible API).
 
+**Model Card:** [Deepseek-R1-Distill-Llama-8B on build.nvidia.com](https://build.nvidia.com/deepseek-ai/deepseek-r1-distill-llama-8b/deploy)
+
+> **Note:** This model is running in a local Docker container.
+
 ![Streamlit LLM UI Screenshot](screenshot.png)
 
 ## Features
