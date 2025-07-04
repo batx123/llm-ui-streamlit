@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Run Streamlit LLM UI",
+			"command": "/home/demo/Documents/test3/.venv/bin/streamlit",
+			"args": [
+				"run",
+				"llm_ui.py"
+			],
+			"isBackground": true,
+			"group": "build"
+		}
+	]
+}
