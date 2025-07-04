@@ -19,13 +19,11 @@ A simple Streamlit-based web UI for chatting with the Deepseek-R1-Distill-Llama-
 - **Max context length control:** UI slider lets you set the max context sent to the LLM (default 4,000 chars, up to 65,000 chars for Deepseek).
 
 ## Requirements
+
 - Python 3.8+
-- [Streamlit](https://streamlit.io/)
-- [requests](https://docs.python-requests.org/)
-- [pyautogui](https://pyautogui.readthedocs.io/en/latest/) (for screenshots)
-- gnome-screenshot (Linux utility for screenshots)
-- [langchain](https://python.langchain.com/), [langchain-community](https://github.com/langchain-ai/langchain), [chromadb](https://www.trychroma.com/), [sentence-transformers](https://www.sbert.net/), [pdfplumber](https://github.com/jsvine/pdfplumber)
+- All required Python packages are listed in `requirements.txt`.
 - A local LLM server with an OpenAI-compatible API (e.g., LM Studio, OpenRouter, etc.)
+- (Optional) `gnome-screenshot` (Linux utility for screenshots)
 
 ## Setup
 1. Clone this repository:
@@ -40,7 +38,8 @@ A simple Streamlit-based web UI for chatting with the Deepseek-R1-Distill-Llama-
    ```
 3. Install dependencies:
    ```bash
-   pip install streamlit requests pyautogui langchain langchain-community chromadb sentence-transformers pdfplumber
+   pip install -r requirements.txt
+   # (Optional, for screenshots on Linux)
    sudo apt-get install gnome-screenshot
    ```
 4. Start your local LLM server (ensure the endpoint and model name match your setup).

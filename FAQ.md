@@ -12,8 +12,9 @@ A: Edit the `model` field in the payload inside `llm_ui.py`.
 ### Q: How do I change the API endpoint?
 A: Use the input box at the top of the UI, or change the `default_llm_url` variable in `llm_ui.py`.
 
+
 ### Q: How do I install dependencies?
-A: Run `pip install streamlit requests pyautogui langchain langchain-community chromadb sentence-transformers pdfplumber` in your project directory (preferably in a virtual environment). On Linux, also run `sudo apt-get install gnome-screenshot`.
+A: Run `pip install -r requirements.txt` in your project directory (preferably in a virtual environment). On Linux, also run `sudo apt-get install gnome-screenshot` if you want to use the screenshot feature.
 
 ### Q: How do I run the app?
 A: Start your LLM server, then run `streamlit run llm_ui.py` and open [http://localhost:8501](http://localhost:8501) in your browser.
