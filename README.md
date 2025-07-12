@@ -50,6 +50,20 @@ A simple Streamlit-based web UI for chatting with the Deepseek-R1-Distill-Llama-
    sudo apt-get install gnome-screenshot
    ```
 4. Start your local LLM server (ensure the endpoint and model name match your setup).
+   
+   If you are using the official Deepseek Docker image, you can start the server with:
+   ```bash
+   docker run -it --rm \
+       --gpus all \
+       --shm-size=16GB \
+       -e NGC_API_KEY \
+       -v "$LOCAL_NIM_CACHE:/opt/nim/.cache" \
+       -u $(id -u) \
+       -p 8001:8000 \
+       nvcr.io/nim/deepseek-ai/deepseek-r1-distill-llama-8b:1.5.2
+   ```
+   
+   > **Note:** The example above maps the container's port 8000 to host port 8001 (`-p 8001:8000`). This is to avoid conflicts if port 8000 is already in use. You can use `-p 8000:8000` if your system is not already using that port.
 5. Run the Streamlit app:
    ```bash
    streamlit run llm_ui.py
