@@ -70,7 +70,7 @@ if rag_docs:
             return context
         st.sidebar.success(f"Indexed {len(all_chunks)} chunks from {len(rag_docs)} file(s)")
 else:
-    def get_rag_context(query, k=2):
+    def get_rag_context(query, k=2, max_context_chars=4000):
         return ""
 
 # Replace with your local LLM endpoint
