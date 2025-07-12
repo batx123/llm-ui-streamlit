@@ -8,6 +8,13 @@ A simple Streamlit-based web UI for chatting with the Deepseek-R1-Distill-Llama-
 
 ![Streamlit LLM UI Screenshot](screenshot.png)
 
+## New Features (v0.09)
+- RAG (document retrieval) can be enabled/disabled per question with a checkbox.
+- RAG source references now show document name and page number (for PDFs), and are clickable if the file exists.
+- User can control the number of RAG references shown per answer.
+- Increased default max_tokens to 512 for more complete answers.
+- Improved PDF ingestion: page numbers are tracked and shown in references.
+
 ## Features
 - Enter your message and get responses from a local LLM
 - Configurable LLM API endpoint (default: OpenAI-compatible)
@@ -15,7 +22,7 @@ A simple Streamlit-based web UI for chatting with the Deepseek-R1-Distill-Llama-
 - Set temperature (0.5–0.7, default 0.6) in the UI
 - Set max tokens (default 64) in the UI
 - Error handling and response format debugging
-- **RAG (Retrieval-Augmented Generation):** Upload or point to a folder of `.txt` or `.pdf` files and chat with your documents! Relevant context is retrieved and sent to the LLM for more informed answers.
+- **RAG (Retrieval-Augmented Generation):** Upload or point to a folder of `.txt` or `.pdf` files and chat with your documents! Relevant context is retrieved and sent to the LLM for more informed answers. You can enable/disable RAG per question, and see clickable source references with page numbers for PDFs.
 - **Max context length control:** UI slider lets you set the max context sent to the LLM (default 4,000 chars, up to 65,000 chars for Deepseek).
 
 ## Requirements
@@ -54,7 +61,7 @@ To take a screenshot of the UI, run:
 ```bash
 python take_screenshot.py
 ```
-This will save a screenshot as `screenshot.png` in the project directory.
+This will save a screenshot as `screenshot.png` in the project directory. The README always shows the latest UI screenshot.
 
 ## Configuration
 - Change the API endpoint in the UI or edit the `default_llm_url` in `llm_ui.py`.

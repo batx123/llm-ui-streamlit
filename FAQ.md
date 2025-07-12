@@ -1,3 +1,11 @@
+### Q: How do I enable or disable RAG (document retrieval) for a question?
+A: Use the "Use RAG (document retrieval) for this question" checkbox above the message box. If unchecked, your question will be sent to the LLM without any document context.
+
+### Q: How do I see which document and page a RAG answer came from?
+A: After each answer, expand the "RAG Source References" section. You'll see the document name and, for PDFs, the page number. If the file exists, the reference is clickable.
+
+### Q: How do I control the number of RAG references shown?
+A: Use the sidebar slider "Number of RAG references to show" to increase or decrease the number of source references displayed with each answer.
 ### Q: I get a CUDA out-of-memory error when uploading PDF or large RAG documents. What should I do?
 A: By default, the app runs document embeddings on the CPU to avoid GPU memory errors (since your LLM likely uses the GPU). If you want faster embedding and have enough GPU memory, you can enable the "Use GPU for embeddings" option in the sidebar. If you see CUDA OOM errors, switch back to CPU mode (uncheck the box). Embedding on CPU is slower but more stable for large files or when your GPU is busy.
 ## FAQ
