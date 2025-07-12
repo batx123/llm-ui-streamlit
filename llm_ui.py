@@ -57,9 +57,12 @@ if rag_docs:
     for fname, text in rag_docs:
         for chunk in splitter.split_text(text):
             all_chunks.append({"text": chunk, "source": fname})
-    # Use a temp dir for Chroma
+    # User choice: run embeddings on CPU (safe, default) or GPU (faster, may OOM)
+    use_gpu = st.sidebar.checkbox("Use GPU for embeddings (advanced, may cause CUDA OOM)", value=False, help="If unchecked, embeddings run on CPU (recommended if your LLM is using the GPU). If checked, embeddings run on GPU, which is faster but may cause out-of-memory errors if your GPU is full.")
+    device = "cuda" if use_gpu else "cpu"
+    embedding_model = HuggingFaceEmbeddings(encode_kwargs={"batch_size": 4}, model_kwargs={"device": device})
     with tempfile.TemporaryDirectory() as persist_dir:
-        vectordb = Chroma.from_texts([c["text"] for c in all_chunks], HuggingFaceEmbeddings(), persist_directory=persist_dir)
+        vectordb = Chroma.from_texts([c["text"] for c in all_chunks], embedding_model, persist_directory=persist_dir)
         # On each query, search for relevant chunks
         def get_rag_context(query, k=2, max_context_chars=4000):
             docs = vectordb.similarity_search(query, k=k)
@@ -127,3 +130,5 @@ if st.button("Send"):
                 st.error(f"Request failed: {e}")
     else:
         st.warning("Please enter a message.")
+
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"

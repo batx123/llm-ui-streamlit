@@ -1,3 +1,5 @@
+### Q: I get a CUDA out-of-memory error when uploading PDF or large RAG documents. What should I do?
+A: By default, the app runs document embeddings on the CPU to avoid GPU memory errors (since your LLM likely uses the GPU). If you want faster embedding and have enough GPU memory, you can enable the "Use GPU for embeddings" option in the sidebar. If you see CUDA OOM errors, switch back to CPU mode (uncheck the box). Embedding on CPU is slower but more stable for large files or when your GPU is busy.
 ## FAQ
 
 ### Q: What is this project?
