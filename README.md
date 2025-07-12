@@ -71,11 +71,12 @@ A simple Streamlit-based web UI for chatting with the Deepseek-R1-Distill-Llama-
 6. Open your browser to [http://localhost:8501](http://localhost:8501)
 
 ## Screenshot
-To take a screenshot of the UI, run:
+**Optional (for development):** To take a screenshot of the UI, run:
 ```bash
 python take_screenshot.py
 ```
-This will save a screenshot as `screenshot.png` in the project directory. The README always shows the latest UI screenshot.
+This will save a screenshot as `screenshot.png` in the project directory. This feature is for developer convenience and is not required for normal use.
+The README always shows the latest UI screenshot if present.
 
 ## Configuration
 - Change the API endpoint in the UI or edit the `default_llm_url` in `llm_ui.py`.
